@@ -154,6 +154,7 @@ if ($action === 'revenue') {
     exit;
 }
 
+
 $editUser = null;
 if ($action === 'edit') {
     $editUser = user_find_by_id($conn, (int)($_GET['id'] ?? 0));

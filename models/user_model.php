@@ -19,6 +19,7 @@ function user_find_by_id($conn, int $id): ?array {
     return $user ?: null;
 }
 
+
 function user_email_exists($conn, string $email, int $excludeId = 0): bool {
     $sql  = "SELECT id FROM users WHERE email = ? AND id <> ?";
     $stmt = mysqli_prepare($conn, $sql);

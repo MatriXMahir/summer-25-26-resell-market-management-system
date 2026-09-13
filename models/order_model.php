@@ -11,6 +11,7 @@ function order_find_owned($conn, int $id, int $buyerId): ?array {
     return $row ?: null;
 }
 
+
 function order_create($conn, int $buyerId, int $productId, int $qty, float $total): int {
     $sql  = "INSERT INTO orders (buyer_id, product_id, quantity, total_price, status)
              VALUES (?, ?, ?, ?, 'pending')";
@@ -79,8 +80,6 @@ function order_list_pending_for_buyer($conn, int $buyerId) {
     return mysqli_stmt_get_result($stmt);
 }
 
-// Paid orders awaiting delivery assignment (used by the delivery model too,
-// but the query starts from orders so it belongs here).
 function order_awaiting_delivery($conn) {
     $sql = "SELECT o.id, p.name FROM orders o
             JOIN products p ON p.id = o.product_id

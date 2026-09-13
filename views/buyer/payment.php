@@ -9,6 +9,7 @@ $selectedOrder = (int)($_GET['order_id'] ?? 0);
         <div class="alert alert-error"><?php foreach ($paymentErrors as $err) echo esc($err) . "<br>"; ?></div>
     <?php endif; ?>
 
+    
     <form method="post" action="index.php?page=buyer&action=payment_save"
           onsubmit="return validateForm(this, {
               order_id: [{type:'required', message:'Please select an order.'}],

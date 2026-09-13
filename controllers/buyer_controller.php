@@ -165,6 +165,7 @@ if ($action === 'review_save' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+
 if ($action === 'browse') {
     $selectedProductId = (int)($_GET['product_id'] ?? 0);
     $selectedProduct = $selectedProductId > 0 ? product_find($conn, $selectedProductId) : null;
@@ -184,6 +185,7 @@ if ($action === 'payment') {
     require __DIR__ . '/../views/buyer/payment.php';
     exit;
 }
+
 
 if ($action === 'review') {
     $eligibleOrders = review_eligible_orders($conn, $buyerId);

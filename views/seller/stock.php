@@ -2,12 +2,14 @@
 $activePage = 'stock';
 require __DIR__ . '/../partials/header.php';
 ?>
+
 <div class="box" style="max-width:460px">
     <h2>Update Stock Status</h2>
 
     <?php if (!empty($stockErrors)): ?>
         <div class="alert alert-error"><?php foreach ($stockErrors as $err) echo esc($err) . "<br>"; ?></div>
     <?php endif; ?>
+
 
     <form method="post" action="index.php?page=seller&action=stock_save"
           onsubmit="return validateForm(this, {
@@ -22,6 +24,7 @@ require __DIR__ . '/../partials/header.php';
                     <option value="<?= (int)$p['id'] ?>"><?= esc($p['name']) ?> (current: <?= (int)$p['stock_qty'] ?>)</option>
                 <?php endwhile; endif; ?>
             </select>
+            
         </div>
         <div class="form-group">
             <label for="newQty">New Quantity</label>

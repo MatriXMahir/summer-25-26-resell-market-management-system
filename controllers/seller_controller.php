@@ -1,7 +1,7 @@
 <?php
 $sellerId = (int)$_SESSION['user_id'];
 
-if ($action === 'save' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+if ( $action === 'save' && $_SERVER['REQUEST_METHOD'] === 'POST' ) {
     verify_csrf();
 
     $id    = (int)($_POST['id'] ?? 0);

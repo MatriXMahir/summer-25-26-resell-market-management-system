@@ -2,6 +2,7 @@
 $activePage = 'invoice';
 require __DIR__ . '/../partials/header.php';
 ?>
+
 <div class="box" style="max-width:460px">
     <h2>Generate Invoice</h2>
     <?php if (!empty($invoiceErrors)): ?>
@@ -22,6 +23,7 @@ require __DIR__ . '/../partials/header.php';
         <button class="btn-primary" type="submit">Generate Invoice</button>
     </form>
 </div>
+
 
 <div class="box">
     <h2>My Invoices</h2>

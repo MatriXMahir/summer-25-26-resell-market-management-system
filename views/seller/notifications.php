@@ -2,6 +2,7 @@
 $activePage = 'notifications';
 require __DIR__ . '/../partials/header.php';
 ?>
+
 <div class="box">
     <h2>Notifications</h2>
     <p>Low-stock alerts are created automatically whenever a product's stock drops below <?= LOW_STOCK ?> units.</p>
@@ -25,5 +26,6 @@ require __DIR__ . '/../partials/header.php';
     <?php else: ?>
         <p>No notifications yet.</p>
     <?php endif; ?>
+    
 </div>
 <?php require __DIR__ . '/../partials/footer.php'; ?>

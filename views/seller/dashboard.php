@@ -9,6 +9,7 @@ require __DIR__ . '/../partials/header.php';
         <div class="alert alert-error"><?php foreach ($productErrors as $err) echo esc($err) . "<br>"; ?></div>
     <?php endif; ?>
 
+
     <form id="productForm" method="post" action="index.php?page=seller&action=save"
           onsubmit="return validateForm(this, {
               name:      [{type:'required', message:'Product name is required.'}],
@@ -25,6 +26,8 @@ require __DIR__ . '/../partials/header.php';
         <?php if ($editProduct): ?><a class="btn-sm" href="index.php?page=seller" style="margin-left:6px">Cancel</a><?php endif; ?>
     </form>
 </div>
+
+
 
 <div class="box">
     <h2>My Products (Create, Read, Update, Delete, Search)</h2>
@@ -54,6 +57,8 @@ require __DIR__ . '/../partials/header.php';
     </table>
 </div>
 
+
+
 <script>
 setupLiveSearch("productSearch", "productTableBody", "search_products", function (row) {
     var tr = document.createElement("tr");
@@ -70,6 +75,7 @@ setupLiveSearch("productSearch", "productTableBody", "search_products", function
     editLink.textContent = "Edit";
     actionTd.appendChild(editLink); tr.appendChild(actionTd);
     return tr;
+    
 }, 5);
 </script>
 <?php require __DIR__ . '/../partials/footer.php'; ?>

@@ -7,6 +7,7 @@ function product_find($conn, int $id): ?array {
     $row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
     mysqli_stmt_close($stmt);
     return $row ?: null;
+
 }
 
 function product_find_owned($conn, int $id, int $sellerId): ?array {
@@ -17,7 +18,9 @@ function product_find_owned($conn, int $id, int $sellerId): ?array {
     $row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
     mysqli_stmt_close($stmt);
     return $row ?: null;
+
 }
+
 
 function product_create($conn, int $sellerId, string $name, string $desc, float $price, int $stock): int {
     $sql  = "INSERT INTO products (seller_id, name, description, price, stock_qty, status)
@@ -28,7 +31,9 @@ function product_create($conn, int $sellerId, string $name, string $desc, float 
     $newId = mysqli_insert_id($conn);
     mysqli_stmt_close($stmt);
     return $newId;
+
 }
+
 
 function product_update($conn, int $id, int $sellerId, string $name, string $desc, float $price, int $stock): bool {
     // Editing sends it back to pending so the admin re-checks the change.
@@ -39,6 +44,7 @@ function product_update($conn, int $id, int $sellerId, string $name, string $des
     $ok = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $ok;
+
 }
 
 function product_delete($conn, int $id, int $sellerId): bool {
@@ -48,6 +54,7 @@ function product_delete($conn, int $id, int $sellerId): bool {
     $ok = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $ok;
+
 }
 
 function product_list_by_seller($conn, int $sellerId) {
@@ -65,6 +72,7 @@ function product_search_by_seller($conn, int $sellerId, string $term) {
     mysqli_stmt_bind_param($stmt, "is", $sellerId, $like);
     mysqli_stmt_execute($stmt);
     return mysqli_stmt_get_result($stmt);
+
 }
 
 function product_update_stock($conn, int $id, int $sellerId, int $newQty): bool {
@@ -74,6 +82,7 @@ function product_update_stock($conn, int $id, int $sellerId, int $newQty): bool 
     $ok = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return $ok;
+    
 }
 
 function product_decrement_stock($conn, int $id, int $qty): void {

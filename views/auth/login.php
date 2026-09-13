@@ -52,13 +52,7 @@ $oldEmail = $_COOKIE['remember_email'] ?? '';
 
         <p style="margin-top:14px">New here? <a href="index.php?page=register">Create an account</a></p>
 
-        <div class="demo-accounts">
-            <b>Demo accounts</b><br>
-            Admin &ndash; dhrubo@resell.com / admin123<br>
-            Buyer &ndash; mahir@resell.com / pass1234<br>
-            Seller &ndash; sanjida@resell.com / pass1234<br>
-            Delivery &ndash; tonmoy@resell.com / pass1234
-        </div>
+        
     </div>
 </div>
 <script src="assets/js/jquery.min.js"></script>

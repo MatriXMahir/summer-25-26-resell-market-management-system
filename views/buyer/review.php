@@ -14,6 +14,7 @@ $selectedOrder = (int)($_GET['order_id'] ?? 0);
               order_id: [{type:'required', message:'Please select an order.'}],
               comment:  [{type:'required', message:'Please write a short comment.'}]
           });">
+
         <?= csrf_field() ?>
         <div class="form-group">
             <label>Order</label>
@@ -27,6 +28,7 @@ $selectedOrder = (int)($_GET['order_id'] ?? 0);
                 <?php endwhile; endif; ?>
             </select>
         </div>
+        
         <div class="form-group">
             <label>Rating (1-5)</label>
             <select name="rating">

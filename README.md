@@ -203,3 +203,4 @@ are created by an existing admin from the Users dashboard.
 `index.php`, `config/`, `helpers/`, `controllers/auth_controller.php`,
 `controllers/ajax_controller.php`, `views/partials/`, and `assets/` are shared
 infrastructure all four roles depend on.
+# Resell-Market-Management-System_Summer25-26_Sec-L

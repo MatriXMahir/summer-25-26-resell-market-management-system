@@ -3,6 +3,7 @@ $activePage = 'dashboard';
 require __DIR__ . '/../partials/header.php';
 ?>
 
+
 <?php if ($editOrder): ?>
 <div class="box" style="max-width:460px">
     <h2>Edit Order: <?= esc($editOrder['product_name']) ?></h2>
@@ -59,6 +60,7 @@ require __DIR__ . '/../partials/header.php';
         </tbody>
     </table>
 </div>
+
 
 <script>
 setupLiveSearch("orderSearch", "orderTableBody", "search_orders", function (row) {

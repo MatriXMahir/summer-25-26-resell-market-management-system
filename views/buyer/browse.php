@@ -12,6 +12,7 @@ require __DIR__ . '/../partials/header.php';
         <ul id="suggestions"></ul>
     </form>
 
+    
     <table>
         <thead><tr><th>Product</th><th>Seller</th><th>Price</th><th>Stock</th><th></th></tr></thead>
         <tbody>
@@ -38,6 +39,7 @@ require __DIR__ . '/../partials/header.php';
     </table>
 </div>
 
+
 <?php if ($selectedProduct): ?>
 <div class="box" style="max-width:420px">
     <h2>Buy: <?= esc($selectedProduct['name']) ?></h2>
@@ -61,6 +63,7 @@ require __DIR__ . '/../partials/header.php';
     </form>
 </div>
 <?php endif; ?>
+
 
 <script>
 setupAutocomplete("searchBox", "suggestions", "searchForm");

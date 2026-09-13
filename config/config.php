@@ -19,12 +19,14 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
+$rememberSession = !empty($_COOKIE['remember_session']) && $_COOKIE['remember_session'] === '1';
+
 if (session_status() === PHP_SESSION_NONE) {
     session_set_cookie_params([
-        'lifetime' => 0,
+        'lifetime' => $rememberSession ? (60 * 60 * 24 * 7) : 0,
         'path'     => '/',
         'httponly' => true,
-        'secure'   => false, 
+        'secure'   => false,
         'samesite' => 'Lax',
     ]);
     session_start();

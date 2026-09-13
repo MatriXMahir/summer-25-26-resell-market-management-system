@@ -1,4 +1,3 @@
-// 23-51598-2 (Arfan Rahman) - Summer 2025-26 Resell Market Management System
 <?php
 $activePage = 'assign';
 require __DIR__ . '/../partials/header.php';

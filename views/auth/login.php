@@ -45,7 +45,7 @@ $oldEmail = $_COOKIE['remember_email'] ?? '';
                 <input type="password" id="password" name="password">
             </div>
             <div class="form-group">
-                <label><input type="checkbox" name="remember" value="1" style="width:auto"> Remember my email on this device</label>
+                <label><input type="checkbox" name="remember" value="1" style="width:auto"> Remember me on this device</label>
             </div>
             <button class="btn-primary" type="submit">Log In</button>
         </form>

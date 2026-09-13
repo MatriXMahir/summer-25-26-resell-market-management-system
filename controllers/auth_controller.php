@@ -7,6 +7,7 @@ if ($page === 'logout') {
         setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
     }
     setcookie('remember_email', '', time() - 3600, '/');
+    setcookie('remember_session', '', time() - 3600, '/');
     header("Location: " . BASE_URL . "?page=login");
     exit;
 }
@@ -56,7 +57,20 @@ if ($page === 'login') {
             exit;
         }
 
+        $remember = !empty($_POST['remember']);
+        $sessionLifetime = $remember ? (60 * 60 * 24 * 7) : 0;
+
+        session_set_cookie_params([
+            'lifetime' => $sessionLifetime,
+            'path'     => '/',
+            'httponly' => true,
+            'secure'   => false,
+            'samesite' => 'Lax',
+        ]);
+
         session_regenerate_id(true);
+        setcookie(session_name(), session_id(), $sessionLifetime > 0 ? time() + $sessionLifetime : 0, '/', '', false, true);
+
         $_SESSION['user_id']       = (int)$user['id'];
         $_SESSION['full_name']     = $user['full_name'];
         $_SESSION['email']         = $user['email'];
@@ -65,9 +79,11 @@ if ($page === 'login') {
         $_SESSION['last_activity'] = time();
         $_SESSION['last_regen']    = time();
 
-        if (!empty($_POST['remember'])) {
+        if ($remember) {
+            setcookie('remember_session', '1', time() + (86400 * 7), '/');
             setcookie('remember_email', $email, time() + (86400 * 7), '/');
         } else {
+            setcookie('remember_session', '', time() - 3600, '/');
             setcookie('remember_email', '', time() - 3600, '/');
         }
 
